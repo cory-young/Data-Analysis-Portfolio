@@ -1,9 +1,16 @@
 --183 Customers Who Never Order
-SELECT name as customers
-FROM Customers as c left join Orders as o 
-on c.id=o.customerid 
-where customerid is null
+--JOIN
+SELECT 
+    name AS customers
+FROM Customers AS c 
+LEFT JOIN Orders AS o 
+    ON c.id = o.customerid 
+WHERE customerid IS NULL;
 
+--Sub Query
 SELECT name AS Customer
-From Customers
-WHERE ID NOT IN (Select CustomerId FROM Orders)
+FROM Customers
+WHERE ID NOT IN (
+    SELECT CustomerId 
+    FROM Orders
+    );

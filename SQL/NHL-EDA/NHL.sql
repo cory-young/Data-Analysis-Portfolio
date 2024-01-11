@@ -2,7 +2,7 @@
 SELECT Team
     , ROUND(
          SUM(W)/SUM(GP)*100,2
-    ) as Win_percent 
+    ) AS Win_percent 
 FROM`cy-portfolio-project.NHL.team_summary`
 WHERE Season 
 NOT IN (
