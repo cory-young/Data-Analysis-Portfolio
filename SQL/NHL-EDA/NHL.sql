@@ -13,3 +13,10 @@ NOT IN (
 GROUP BY Team
 ORDER BY Win_percent ASC
 LIMIT 10;
+
+-- Total goals scores per season. Excluding shortened seasons.
+SELECT SUM(GF) as total_goals, Season
+FROM `cy-portfolio-project.NHL.team_summary`
+GROUP BY Season
+HAVING MAX(GP) = 82
+ORDER BY Season;
