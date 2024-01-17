@@ -1,7 +1,7 @@
 ## Relational DB SQL
 Answers to Stanfords SOE.YDB-SQL0001
 
-Executed using SQLite
+Executed using MySQL
 
 Showcasing RDBM skills and SQL code best practices for ease of use
 

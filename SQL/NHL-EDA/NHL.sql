@@ -1,22 +1,18 @@
 -- 10 Worst cumulative win percentage since the 2002-2003 season. Excluding current season (2023-2024) 
-SELECT Team
-    , ROUND(
-         SUM(W)/SUM(GP)*100,2
-    ) AS Win_percent 
-FROM`cy-portfolio-project.NHL.team_summary`
-WHERE Season 
-NOT IN (
-    SELECT Season 
-    FROM `cy-portfolio-project.NHL.team_summary` 
-    WHERE Season = 20232024
-    )
-GROUP BY Team
-ORDER BY Win_percent ASC
-LIMIT 10;
+SELECT team,
+       Round(Sum(w) / Sum(gp) * 100, 2) AS Win_percent
+FROM  `cy-portfolio-project.nhl.team_summary`
+WHERE  season NOT IN (SELECT season
+                      FROM   `cy-portfolio-project.nhl.team_summary`
+                      WHERE  season = 20232024)
+GROUP  BY team
+ORDER  BY win_percent ASC
+LIMIT  10;
 
 -- Total goals scores per season. Excluding shortened seasons.
-SELECT SUM(GF) as total_goals, Season
-FROM `cy-portfolio-project.NHL.team_summary`
-GROUP BY Season
-HAVING MAX(GP) = 82
-ORDER BY Season;
+SELECT Sum(gf) AS total_goals,
+       season
+FROM   `cy-portfolio-project.nhl.team_summary`
+GROUP  BY season
+HAVING Max(gp) = 82
+ORDER  BY season; 
